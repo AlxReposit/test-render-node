@@ -7,8 +7,11 @@ const server = createServer((req, res) => {
 });
 
 // starts a simple http server locally on port 3000
-server.listen(3000, '127.0.0.1', () => {
+server.listen(3000, '127.0.0.1', (req, res) => {
   console.log('Listening on 127.0.0.1:3000');
+  res.statusCode = 200;
+  res.setHeader('Content-type', 'text-plain');
+  res.end('Teste Render')
 });
 
 // run with `node server.mjs`
